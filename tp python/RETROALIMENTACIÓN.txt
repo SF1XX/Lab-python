@@ -1,0 +1,3 @@
+Ingeniero - tengo demasiados desechos de proyectos anteriores - Opinión: si
+Ingeniero - mi aplicación usa mucha memoria y tarda en cargar - Consejo: 1. Usa sensores de bajo consumo energético para monitoreo ambiental. - Opinión: si
+Desarrollador - tengo un alto consumo de memoria - Consejo: 42. Educa al usuario final: Ofrece opciones dentro de la aplicación, como un "modo de ahorro de energía" que reduzca la calidad de video o las actualizaciones en segundo plano. - Opinión: no
