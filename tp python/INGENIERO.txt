@@ -29,7 +29,6 @@ Propuesto por la Green Software Foundation, define una métrica para calcular la
 ISO 14001 (Gestión Ambiental)
 Norma internacional que ayuda a organizaciones a gestionar su impacto ambiental, aplicable también a procesos de desarrollo y operación de software.
 
-
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Patrones: los siguientes patrones te ayudaran a que puedas medirte y completar tus objetivos respetando las practicas Green software.
@@ -39,4 +38,5 @@ Patrón que promueve el desarrollo de código que reduce ciclos innecesarios, op
 
 Green Load Shifting
 Patrón que consiste en desplazar tareas computacionalmente intensivas a momentos o ubicaciones con menor impacto ambiental
+
 
