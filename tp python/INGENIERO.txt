@@ -1,0 +1,42 @@
+Herramientas: las siguientes herramientas te ayudaran a que puedas cumplir tus metas respetando las practicas Green software.
+
+Cloud Carbon Footprint (CCF) 
+Es una herramienta de código abierto que permite medir y estimar el impacto ambiental de las cargas de trabajo en la nube. Ayuda a los ingenieros  operativos a ver cuántas emisiones de CO2 que genera su infraestructura, Identificar áreas de alto consumo energético y Obtener recomendaciones para mejorar la eficiencia y reducir huella de carbono.
+
+Green Cost Explorer (AWS)
+Visualiza el consumo de energía y el costo asociado en servicios de AWS. Ayuda a identificar recursos infrautilizados y recomienda optimizaciones para reducir tanto emisiones de carbono como gastos.
+
+Carbon Aware SDK
+Kit de desarrollo que permite que las aplicaciones ajusten su comportamiento según la intensidad de carbono de la red eléctrica en tiempo real. Ideal para programar tareas intensivas cuando hay más energía renovable disponible.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Métodos: los siguientes metodos te ayudaran a que puedas cumplir tus metas respetando las practicas Green software.
+
+Optimización del uso de recursos.
+Consiste en escribir código eficiente que minimice el uso de CPU, memoria y red, reduciendo así el consumo energético general de la aplicación.
+
+Escalado dinámico y uso de servidores eficientes
+Ajustar automáticamente la infraestructura (por ejemplo, contenedores o instancias) según la carga real, evitando el uso excesivo de recursos inactivos
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Estándares: los siguientes estándares te ayudaran a que puedas medirte y completar tus objetivos respetando las practicas Green software.
+
+Software Carbon Intensity (SCI)
+Propuesto por la Green Software Foundation, define una métrica para calcular la intensidad de carbono del software considerando energía consumida, fuente energética y hardware.
+
+ISO 14001 (Gestión Ambiental)
+Norma internacional que ayuda a organizaciones a gestionar su impacto ambiental, aplicable también a procesos de desarrollo y operación de software.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Patrones: los siguientes patrones te ayudaran a que puedas medirte y completar tus objetivos respetando las practicas Green software.
+
+Energy-Aware Coding
+Patrón que promueve el desarrollo de código que reduce ciclos innecesarios, operaciones costosas o acceso frecuente a disco/red para minimizar el consumo energético.
+
+Green Load Shifting
+Patrón que consiste en desplazar tareas computacionalmente intensivas a momentos o ubicaciones con menor impacto ambiental
+
