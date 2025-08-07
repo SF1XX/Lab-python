@@ -30,10 +30,21 @@ def mostrar_lineas_ing(valor):
         print("El archivo no fue encontrado.")
 
 def mostrar_menu_principal():
-    print("\n--- EcoSoluciones ---")
-    print("1. Soy Ingeniero")
-    print("2. Soy Desarrollador")
-    print("3. Salir")
+    print("\n" + "="*40)
+    print("      🌿 Bienvenido a EcoSoluciones 🌿")
+    print("="*40)
+    print(r"""
+ _____                    _            _                       
+|  ___|                  | |          (_)                      
+| |__  ___ ___  ___  ___ | |_   _  ___ _  ___  _ __   ___  ___ 
+|  __|/ __/ _ \/ __|/ _ \| | | | |/ __| |/ _ \| '_ \ / _ \/ __|
+| |__| (_| (_) \__ \ (_) | | |_| | (__| | (_) | | | |  __/\__ \
+\____/\___\___/|___/\___/|_|\__,_|\___|_|\___/|_| |_|\___||___/
+    """)
+    print("1️⃣  Soy Ingeniero")
+    print("2️⃣  Soy Desarrollador")
+    print("3️⃣  Salir")
+    print("="*40)
 
 def obtener_problema():
     return input("\nDescribe brevemente tu problema técnico: ").lower()
@@ -46,13 +57,26 @@ def cargar_consejos(archivo):
         print(f"⚠️ No se encontró el archivo {archivo}.")
         return []
 
+import string
+
+def limpiar_texto(texto):
+    return texto.translate(str.maketrans('', '', string.punctuation)).lower()
+
 def encontrar_mejor_consejo(problema, consejos):
+    problema = limpiar_texto(problema)
+    palabras_problema = problema.split()
+
     mejor_consejo = ""
     max_coincidencias = 0
 
     for consejo in consejos:
-        palabras_consejo = consejo.lower().split()
-        coincidencias = sum(1 for palabra in palabras_consejo if palabra in problema)
+        consejo_limpio = limpiar_texto(consejo)
+        palabras_consejo = consejo_limpio.split()
+
+        coincidencias = sum(
+            1 for palabra in palabras_consejo
+            if palabra in palabras_problema or any(p in palabra for p in palabras_problema)
+        )
 
         if coincidencias > max_coincidencias:
             max_coincidencias = coincidencias
@@ -77,7 +101,7 @@ def ejecutar_aplicacion():
             profesion = "Desarrollador"
             archivo = "DESARROLLADOR.txt"
         elif opcion == "3":
-            print("👋 ¡Hasta luego!")
+            despedida()
             break
         else:
             print("❌ Opción inválida. Intenta nuevamente.")
@@ -91,6 +115,26 @@ def ejecutar_aplicacion():
         opinion = input("\n¿Te pareció útil la solución? Deja tu opinión: ")
         guardar_opinion(f"{profesion} - {problema} - Consejo: {mejor_consejo} - Opinión: {opinion}")
 
-if __name__ == "__main__":
+def despedida():
+    print("\n" + "*"*45)
+    print("🌟 Gracias por usar EcoSoluciones 🌟")
+    print("*"*45)
+    print(r"""
 
+  ***     ***
+*******  *******
+*****************
+*****************
+ ***************
+  *************
+    *********
+      *****
+       ***
+        *
+
+    """)
+    print("👋 ¡Hasta la próxima! Que tengas un gran día.")
+    print("*"*45 + "\n")
+
+if __name__ == "__main__":
     ejecutar_aplicacion()
