@@ -1,5 +1,34 @@
 # eco_soluciones_optimo.py
 
+def mostrar_lineas_ing(valor):
+
+    numero1al4 = {"1","2","3","4"}
+    valor = input("te ofrecemos diferentes recomendaciones según lo que desees hacer:\n1 Si desea conocer sobre Herramientas\n2 si desea conocer sobre metodos\n3 si desea conocer sobre estandares\n4 si desea conocer sobre patrones" )
+    while valor not in numero1al4:
+        valor = input("Por favor ingrese un número válido del 1 al 4: ")
+
+    #Esta vaina muestra un segmento de líneas de un archivo .txt según el valor asignado del 1 al 4.
+    if valor == "1":
+        inicio, fin = 0, 9
+    elif valor == "2":
+        inicio, fin = 13, 19
+    elif valor == "3":
+        inicio, fin = 23, 29
+    elif valor == "4":
+        inicio, fin = 33, 39  
+
+    try:
+        with open("INGENIERO.txt", 'r', encoding ='utf-8') as archivo:
+            linea = archivo.readlines()
+        
+            fin = min(fin, len(linea)) # Asegura que no se pase del tamaño real del archivo osea la lineas
+
+            for i in range(inicio, fin + 1):
+                print(f"{linea[i]}")
+
+    except FileNotFoundError:
+        print("El archivo no fue encontrado.")
+
 def mostrar_menu_principal():
     print("\n--- EcoSoluciones ---")
     print("1. Soy Ingeniero")
@@ -63,4 +92,5 @@ def ejecutar_aplicacion():
         guardar_opinion(f"{profesion} - {problema} - Consejo: {mejor_consejo} - Opinión: {opinion}")
 
 if __name__ == "__main__":
+
     ejecutar_aplicacion()
