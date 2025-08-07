@@ -1,9 +1,18 @@
 # eco_soluciones_optimo.py
 
-def mostrar_lineas_ing(valor):
+def mostrar_lineas_ing():
 
     numero1al4 = {"1","2","3","4"}
-    valor = input("te ofrecemos diferentes recomendaciones según lo que desees hacer:\n1 Si desea conocer sobre Herramientas\n2 si desea conocer sobre metodos\n3 si desea conocer sobre estandares\n4 si desea conocer sobre patrones" )
+
+    valor = input(
+        "Te ofrecemos diferentes recomendaciones según lo que desees hacer:\n"
+        "1️⃣  Si desea conocer sobre Herramientas\n"
+        "2️⃣  Si desea conocer sobre Métodos\n"
+        "3️⃣  Si desea conocer sobre Estándares\n"
+        "4️⃣  Si desea conocer sobre Patrones\n"
+        "Ingrese una opción (1-4): "
+    )
+
     while valor not in numero1al4:
         valor = input("Por favor ingrese un número válido del 1 al 4: ")
 
@@ -24,7 +33,7 @@ def mostrar_lineas_ing(valor):
             fin = min(fin, len(linea)) # Asegura que no se pase del tamaño real del archivo osea la lineas
 
             for i in range(inicio, fin + 1):
-                print(f"{linea[i]}")
+                print(linea[i], end='')
 
     except FileNotFoundError:
         print("El archivo no fue encontrado.")
@@ -87,8 +96,9 @@ def encontrar_mejor_consejo(problema, consejos):
 def guardar_opinion(opinion):
     with open("RETROALIMENTACIÓN.txt", "a", encoding="utf-8") as f:
         f.write(opinion + "\n")
-    print("✅ ¡Gracias por tu opinión!")
+    input("✅ ¡Gracias por tu opinión!")
 
+#lo que se ejecuta primero
 def ejecutar_aplicacion():
     while True:
         mostrar_menu_principal()
@@ -96,24 +106,37 @@ def ejecutar_aplicacion():
 
         if opcion == "1":
             profesion = "Ingeniero"
-            archivo = "INGENIERO.txt"
+
+            mostrar_lineas_ing()
+            opinion = input("\n¿Te pareció útil la solución? Deja tu opinión.\nSi no quieres dejar una escribe 'no'\n")
+            
+            if opinion != "no":
+                guardar_opinion(f"{profesion} - Opinión: {opinion}")
+            else:
+                input("✅ Tu opinion no se guardo")
+
         elif opcion == "2":
             profesion = "Desarrollador"
             archivo = "DESARROLLADOR.txt"
+
+            problema = obtener_problema()
+            consejos = cargar_consejos(archivo)
+            mejor_consejo = encontrar_mejor_consejo(problema, consejos)
+
+            print(f"\n✅ Solución recomendada:\n{mejor_consejo}")
+            opinion = input("\n¿Te pareció útil la solución? Deja tu opinión.\nSi no quieres dejar una escribe 'no'\n")
+
+            if opinion != "no":
+                guardar_opinion(f"{profesion} - {problema} - Consejo: {mejor_consejo} - Opinión: {opinion}")
+            else:
+                input("✅ Tu opinion no se guardo")
+
         elif opcion == "3":
             despedida()
             break
         else:
             print("❌ Opción inválida. Intenta nuevamente.")
             continue
-
-        problema = obtener_problema()
-        consejos = cargar_consejos(archivo)
-        mejor_consejo = encontrar_mejor_consejo(problema, consejos)
-
-        print(f"\n✅ Solución recomendada:\n{mejor_consejo}")
-        opinion = input("\n¿Te pareció útil la solución? Deja tu opinión: ")
-        guardar_opinion(f"{profesion} - {problema} - Consejo: {mejor_consejo} - Opinión: {opinion}")
 
 def despedida():
     print("\n" + "*"*45)
